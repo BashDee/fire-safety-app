@@ -1,0 +1,44 @@
+.dashboard-container {
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu ul li {
+    margin: 20px 0;
+  }
+  
+  .menu ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #4facfe;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu ul li a:hover {
+    background-color: #00f2fe;
+  }
+  
+  .menu {
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    padding: 30px;
+  }
+  
+  .menu > div {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    border: 1px solid #00f2fe;
+    text-align: center;
+    font-size: 30px;
+    background-color: #00f2fe;
+
+  }
