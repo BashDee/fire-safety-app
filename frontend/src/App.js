@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
 import QRCodePage from './components/QRCodePage';
 import FireSafetyForm from './components/FireSafetyForm';
@@ -9,11 +9,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Switch>
-          <Route path="/login" component={LoginPage} />
-          <Route path="/apply-certificate" component={FireSafetyForm} />
-          <Route path="/generate-qr-code" component={QRCodePage} />
-        </Switch>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/apply-certificate" element={<FireSafetyForm />} />
+          <Route path="/generate-qr-code" element={<QRCodePage />} />
+        </Routes>
       </div>
     </Router>
   );
