@@ -1,18 +1,52 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/auth';
+// Backend API base URL
+const API_URL = 'http://localhost:5000/api';
 
-const login = async (email, password) => {
-  const response = await axios.post(`${API_URL}/login`, { email, password });
-  localStorage.setItem('token', response.data.token);
+// Register a new user
+const register = async (name, username, email, password) => {
+  try {
+    const response = await axios.post(`${API_URL}/register`, {
+      name,
+      username,
+      email,
+      password,
+    });
+    return response.data;  // Return the response data (e.g., user object)
+  } catch (error) {
+    console.error('Registration failed:', error.response ? error.response.data : error.message);
+    throw new Error('Registration failed');
+  }
 };
 
-const register = async (name, email, password) => {
-  const response = await axios.post(`${API_URL}/register`, { name, email, password });
-  return response.data;
+// Login a user
+const login = async (username, password) => {
+  try {
+    const response = await axios.post(`${API_URL}/login`, {
+      username,
+      password,
+    });
+    
+    if (response.data.token) {
+      // Store the JWT token in localStorage for later use
+      localStorage.setItem('token', response.data.token);
+    }
+
+    return response.data;  // Return the response data (e.g., token or user object)
+  } catch (error) {
+    console.error('Login failed:', error.response ? error.response.data : error.message);
+    throw new Error('Login failed');
+  }
 };
 
-export default {
-  login,
+// Logout user
+const logout = () => {
+  localStorage.removeItem('token');  // Remove the token from localStorage
+};
+
+const authService = {
   register,
+  login,
+  logout,
 };
+export default authService;

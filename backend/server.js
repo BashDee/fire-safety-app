@@ -10,11 +10,12 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to the database
-db();
+// mysql();
 
 // API routes
-app.use('/api/auth', authRoutes);
+app.use('/api', authRoutes);
 app.use('/api/certificates', certificateRoutes);
+
 
 // Listen on port
 const PORT = process.env.PORT || 5000;

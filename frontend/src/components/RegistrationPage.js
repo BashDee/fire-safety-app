@@ -32,9 +32,9 @@ const RegistrationPage = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Enter your name"
-            required
-          />
+            required />
         </div>
+
         <div className="input-container">
           <label>Username</label>
           <input
@@ -45,6 +45,7 @@ const RegistrationPage = () => {
             required
           />
         </div>
+
         <div className="input-container">
           <label>Email</label>
           <input
@@ -55,6 +56,7 @@ const RegistrationPage = () => {
             required
           />
         </div>
+
         <div className="input-container">
           <label>Password</label>
           <input
@@ -65,6 +67,7 @@ const RegistrationPage = () => {
             required
           />
         </div>
+
         <button type="submit" className="register-btn">Register</button>
       </form>
     </div>
